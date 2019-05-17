@@ -7,7 +7,7 @@
   tasks:
   
   - name: install nginx
-    command: yum install nginx
+    command: yum -y -q install nginx
     
   - name: start nginx
     command: systemctl restart nginx
