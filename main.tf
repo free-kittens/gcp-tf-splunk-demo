@@ -1,5 +1,5 @@
 provider "google" {
- project     = "ikea-dt-splunkrix-test"
+ project     = "possible-jetty-239813"
  region      = "europe-west1"
 }
 
@@ -19,7 +19,7 @@ resource "google_compute_instance" "splunk-bigredbutton-idx" {
   }
  }
 
- metadata_startup_script = "sudo yum -q -y update"
+ metadata_startup_script = "sudo yum -q -y update; yum -q -y git; yum -q -y ansible"
 
  network_interface {
   network = "default"
@@ -41,7 +41,7 @@ resource "google_compute_instance" "splunk-bigredbutton-hf" {
   }
  }
 
- metadata_startup_script = "sudo yum -q -y update"
+ metadata_startup_script = "sudo yum -q -y update; yum -q -y git; yum -q -y ansible"
 
  network_interface {
   network = "default"
@@ -50,9 +50,9 @@ resource "google_compute_instance" "splunk-bigredbutton-hf" {
   }
  }
 
- //metadata {
-  //sshKeys = "panther:${file("id_ed25519.pub")}"
-// }
+ metadata {
+  sshKeys = "panther:${file("id_ed25519.pub")}"
+ }
 }
 
 output "idx-ip" {
