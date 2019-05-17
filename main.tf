@@ -9,7 +9,7 @@ resource "random_id" "instance_id" {
 
 resource "google_compute_instance" "splunk-bigredbutton-idx" {
  name = "splunk-bigredbutton-idx-vm-${random_id.instance_id.hex}"
- machine_type = "f1-small"
+ machine_type = "g1-small"
  zone = "europe-west1-b"
  tags = ["splunk-bigredbutton"]
 
