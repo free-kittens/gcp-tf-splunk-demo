@@ -6,6 +6,9 @@
   become: yes
   tasks:
   
+  - name: fix selinux
+    command: setenforce Permissive
+  
   - name: install nginx
     command: yum -y -q install nginx
     
@@ -16,4 +19,4 @@
     command: mv index1.html /usr/share/nginx/html/index.html
     
   - name: move image to nginx directory
-    command: mv Diagram.png /usr/share/nginx/html/Diagram.png
+    command: mv /gcp-tf-splunk-demo/Diagram.png /usr/share/nginx/html/Diagram.png
