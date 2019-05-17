@@ -16,7 +16,7 @@
     command: systemctl restart nginx
     
   - name: move web data to nginx directory
-    command: mv index1.html /usr/share/nginx/html/index.html
+    command: mv /gcp-tf-splunk-demo/index1.html /usr/share/nginx/html/index.html
     
   - name: move image to nginx directory
     command: mv /gcp-tf-splunk-demo/Diagram.png /usr/share/nginx/html/Diagram.png
