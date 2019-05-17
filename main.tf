@@ -27,6 +27,9 @@ resource "google_compute_instance" "splunk-bigredbutton-idx" {
   access_config {
   }
  }
+ metadata {
+  sshKeys = "panther:${file("id_ed25519.pub")}"
+ }
 }
 
 resource "google_compute_instance" "splunk-bigredbutton-hf" {
@@ -49,7 +52,6 @@ resource "google_compute_instance" "splunk-bigredbutton-hf" {
   access_config {
   }
  }
-
  metadata {
   sshKeys = "panther:${file("id_ed25519.pub")}"
  }
