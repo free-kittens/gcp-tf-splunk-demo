@@ -9,7 +9,7 @@ resource "random_id" "instance_id" {
 
 resource "google_compute_instance" "splunk-bigredbutton-idx" {
  name = "splunk-bigredbutton-idx-vm-${random_id.instance_id.hex}"
- machine_type = "f1-micro"
+ machine_type = "f1-small"
  zone = "europe-west1-b"
  tags = ["splunk-bigredbutton"]
 
@@ -53,6 +53,19 @@ resource "google_compute_instance" "splunk-bigredbutton-hf" {
  metadata {
   sshKeys = "panther:${file("id_ed25519.pub")}"
  }
+}
+
+resource  "google_compute_firewall" "default" {
+ name    = "splunk-firewall"
+ network = "default"
+
+allow {
+ protocol = "tcp"
+ ports = ["80","8000","8089","9997"]
+}
+allow {
+ protocol = "icmp"
+}
 }
 
 output "idx-ip" {
