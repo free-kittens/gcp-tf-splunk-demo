@@ -19,7 +19,7 @@ resource "google_compute_instance" "splunk-bigredbutton-idx" {
   }
  }
 
- metadata_startup_script = "sudo yum -q -y update; yum -q -y install git; yum -q -y install ansible; git clone https://github.com/free-kittens/gcp-tf-splunk-demo.git; ansible-playbook gcp-splunk-demo/idx-install.yml"
+ metadata_startup_script = "sudo yum -q -y update; yum -q -y install git; yum -q -y install ansible; git clone https://github.com/free-kittens/gcp-tf-splunk-demo.git; ansible-playbook /gcp-tf-splunk-demo/idx-install.yml"
 
  network_interface {
   network = "default"
@@ -41,7 +41,7 @@ resource "google_compute_instance" "splunk-bigredbutton-hf" {
   }
  }
 
- metadata_startup_script = "sudo yum -q -y update; yum -q -y install git; yum -q -y install ansible; git clone https://github.com/free-kittens/gcp-tf-splunk-demo.git; ansible-playbook gcp-splunk-demo/hf-install.yml"
+ metadata_startup_script = "sudo yum -q -y update; yum -q -y install git; yum -q -y install ansible; git clone https://github.com/free-kittens/gcp-tf-splunk-demo.git; ansible-playbook /gcp-tf-splunk-demo/hf-install.yml"
 
  network_interface {
   network = "default"
