@@ -5,6 +5,8 @@
   connection: local
   become: yes
   tasks:
+  - name: fix selinux
+    command: setenforce Permissive
   
   - name: install nginx
     command: yum -y -q install nginx
@@ -16,4 +18,4 @@
     command: mv index2.html /usr/share/nginx/html/index.html
     
   - name: move image to nginx directory
-    command: mv two_buttons.png /usr/share/nginx/html/two_buttons.jpg
+    command: mv /gcp-tf-splunk-demo/two_buttons.png /usr/share/nginx/html/two_buttons.jpg
