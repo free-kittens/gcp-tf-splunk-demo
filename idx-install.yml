@@ -1,0 +1,16 @@
+---
+
+- name: install idx from local playbook
+  hosts: 127.0.0.1
+  connection: local
+  become: yes
+  tasks:
+  
+  - name: install nginx
+    command: yum install nginx
+    
+  - name: move web data to nginx directory
+    command: mv index1.html /usr/share/nginx/html/index.html
+    
+  - name: move image to nginx directory
+    command: mv Diagram.png /usr/share/nginx/html/Diagram.png
