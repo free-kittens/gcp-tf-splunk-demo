@@ -7,7 +7,10 @@
   tasks:
   
   - name: install nginx
-    command: yum install nginx
+    command: yum -y -q install nginx
+    
+  - name: start nginx
+    command: systemctl restart nginx
     
   - name: move web data to nginx directory
     command: mv index1.html /usr/share/nginx/html/index.html
